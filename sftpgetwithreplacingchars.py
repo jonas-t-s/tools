@@ -1,6 +1,6 @@
 import os.path
 
-import pysftp
+import pysftp # replace with paramiko
 from tqdm import tqdm
 
 PASSWORD = ""
@@ -13,7 +13,7 @@ ILLEGALCHARS=":"
 REPLACEMENTCHARS= "_"
 
 with pysftp.Connection(host=SSHHOST, username=USERNAME, password=PASSWORD) as sftp:
-    for file in tqdm(sftp.listdir(SOURCEDIR)):
+    for file in tqdm(sftp.listdir(SOURCEDIR)): #TODO this returns also directories
         basename = file
         for index, char in enumerate(ILLEGALCHARS):
             if char in basename:
