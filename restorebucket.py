@@ -16,13 +16,6 @@ index = int(len(files)/2)
 intervallength = int(len(files)/2)
 z = 0
 heads= np.zeros(len(files))
-head = subprocess.check_output(["aws", "s3api", "head-object", "--bucket", bucket, "--key", files[0].split(" ")[-1]])
-print(head)
-exit(0)
-if "Restore" in head.decode("utf-8"):
-    index = 0
-    print(head)
-    exit(0)
 skipindex = []
 for i in range(0,len(files)):
     file = files[index].split(" ")[-1]
